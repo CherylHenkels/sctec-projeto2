@@ -19,6 +19,7 @@ def load_model():
     global model
 
     if model is None:
+        print("Carregando o modelo...")
         model = joblib.load(MODEL_PATH)
 
 
@@ -65,6 +66,7 @@ def predict_digit(image_path):
     img_norm = img_processed / 255.0
     img_flat = img_norm.reshape(1, 784)
 
+    print("Fazendo predição...")
     prediction = model.predict(img_flat)
 
     return int(prediction[0])
