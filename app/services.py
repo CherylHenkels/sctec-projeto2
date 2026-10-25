@@ -12,7 +12,15 @@ MODEL_PATH = (Path(__file__).resolve().parent.parent
               / "best_model_rf.joblib")
 
 
-model = joblib.load(MODEL_PATH)
+model = None
+
+def load_model():
+    # variável global para permitir mudança pela função
+    global model
+
+    if model is None:
+        print("Carregando o modelo...")
+        model = joblib.load(MODEL_PATH)
 
 
 def redimencionaliza_figura(img):
@@ -46,6 +54,9 @@ def redimencionaliza_figura(img):
 
     
 def predict_digit(image_path):
+    if model is None:
+        raise RuntimeError('O modelo ainda não foi carregado')
+    
     img = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
 
     if img is None:
@@ -55,6 +66,7 @@ def predict_digit(image_path):
     img_norm = img_processed / 255.0
     img_flat = img_norm.reshape(1, 784)
 
+    print("Fazendo predição...")
     prediction = model.predict(img_flat)
 
     return int(prediction[0])
