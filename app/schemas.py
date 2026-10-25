@@ -1,9 +1,14 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 
 
 # Entra no modelo (imagem com pixels)
 class PredictionRequest(BaseModel):
+    model_config = ConfigDict(
+        strict = True,
+        extra = "forbid",
+        str_strip_whitespace = True
+    )
     image_path: str = Field(...,
                                  min_length=1, 
                                  max_length=1000,
@@ -11,8 +16,11 @@ class PredictionRequest(BaseModel):
 
 # Saida do modelo (número)
 class PredictionResponse(BaseModel):
+    model_config = ConfigDict(
+        strict = True,
+        extra = "forbid"
+    )
     digit: int = Field(...,
-                       strict=True,
                        ge=0,
                        le=9,
                        description="Dígito previsto pelo modelo")
