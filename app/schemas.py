@@ -25,3 +25,12 @@ class PredictionResponse(BaseModel):
                        le=9,
                        description="Dígito previsto pelo modelo")
 
+class HealthResponse(BaseModel):
+    model_config = ConfigDict(
+        strict=True,
+        extra = "forbid"
+    )
+    status: str = Field(...,
+                        description="Estado do serviço")
+    model_loaded: bool = Field(...,
+                               description="Estado do modelo na memoria (carregado/não)")

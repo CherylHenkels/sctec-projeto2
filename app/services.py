@@ -22,6 +22,9 @@ def load_model():
         print("Carregando o modelo...")
         model = joblib.load(MODEL_PATH)
 
+def is_model_loaded() -> bool:
+    loaded = model is not None
+    return loaded
 
 def redimencionaliza_figura(img):
     # blur leve
