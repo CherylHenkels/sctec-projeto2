@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field, ConfigDict
-from typing import List
 
 
 # Entra no modelo (imagem com pixels)
