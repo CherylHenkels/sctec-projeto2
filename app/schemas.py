@@ -27,7 +27,7 @@ class PredictionResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     model_config = ConfigDict(
-        strict=True,
+        strict= True,
         extra = "forbid"
     )
     status: str = Field(...,
