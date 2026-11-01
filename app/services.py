@@ -15,13 +15,16 @@ MODEL_PATH = (Path(__file__).resolve().parent.parent
 model = None
 
 def load_model():
-    # variável global para permitir mudança pela função
+    # variável global que armazena modelo na memória RAM
     global model
 
     if model is None:
         print("Carregando o modelo...")
         model = joblib.load(MODEL_PATH)
 
+def is_model_loaded() -> bool:
+    loaded = model is not None
+    return loaded
 
 def redimencionaliza_figura(img):
     # blur leve
