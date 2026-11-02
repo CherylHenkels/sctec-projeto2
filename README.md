@@ -19,7 +19,7 @@ O projeto tem como objetivo construir uma API de classificação de imagens, que
 ├── requirements.txt               # Dependências do projeto
 ├── README.md                      # Documentação
 ├── models/
-│   └── best_model_rf.pkl          # Modelo salvo
+│   └── best_model_rf.joblib          # Modelo salvo
 ├── images/                        # Imagens
 |   ├── numero0.png
 |   ├── numero1.png
@@ -306,7 +306,7 @@ Mesmo após falhas de requisição, o serviço deve continuar atendendo. Então 
 
 ## 🎥 Video de demonstração
 
-[link do video](https://drive.google.com/file/d/1eo-pvm5E4Hkoucgq5i_JyoRRM2ENj82U/view?usp=sharing)
+[link do video](https://drive.google.com/file/d/1uRZI9NwwB4WPKwS9Ja_5120iBXPXvuSp/view?usp=sharing)
 
 ---
 
